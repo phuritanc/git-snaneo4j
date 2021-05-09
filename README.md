@@ -2,7 +2,7 @@
 # Community Detection of Insurance Motor Claim
 
 ## Setup
-    Download and Install neo4j desktop [here](https://neo4j.com/download/#).
+    * Download Neo4j Desktop tool [here](https://neo4j.com/download/).
 ## Import
 
 **Important**
