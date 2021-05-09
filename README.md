@@ -10,7 +10,7 @@ Dataset:
 - Dataset claim [here](https://github.com/phuritanc/git-snaneo4j/blob/main/DATAMTCLAIMALL.csv)
 - Dataset car brand [here](https://github.com/phuritanc/git-snaneo4j/blob/main/CARBRAND.csv)
 - Dateset car model [here](https://github.com/phuritanc/git-snaneo4j/blob/main/CARMODEL.csv)
-Import Data to Neo4j
+/nImport Data to Neo4j
 - Import data to project [here](https://github.com/phuritanc/git-snaneo4j/blob/main/Import%20Dataset%20to%20neo4j.pdf)
 ## Query
 Cancel changes
