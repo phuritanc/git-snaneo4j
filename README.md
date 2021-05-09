@@ -4,6 +4,7 @@
  - About Neo4j [here](https://neo4j.com/product/#neo4j-desktop)
 ## Create New Project
 - Create new project [here](https://github.com/phuritanc/git-snaneo4j/blob/main/DATAMTCLAIMALL.csv)
+- Install and additional Plugin Graph Data Science Library  [here](https://neo4j.com/docs/graph-data-science/current/)
 ## Import and Load Dataset in to Neo4j
 Load Data in to Neo4j Project
 **Important**
