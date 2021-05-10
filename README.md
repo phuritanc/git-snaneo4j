@@ -86,6 +86,7 @@ MERGE (carmodel)-[:brand]->(carbrand)
 ### Explore data
 - Explore Data use cypher query [here](https://github.com/phuritanc/git-snaneo4j/blob/main/Explore%20Data%20Node%20and%20Relationship.pdf)
 #### Cypher Query for Explore Data
+Run all the example queries:
 - Node Claim
 ```
 MATCH (n:claim) RETURN n LIMIT 25
@@ -114,8 +115,35 @@ MATCH p=()-[r:claimmodel]->() RETURN p LIMIT 300
 ```
 MATCH p=()-[r:productgroup]->() RETURN p LIMIT 25
 ```
-## Query
+### Explore the highest number of claims made
+- Insight volumn claim [here]
+#### Cypher Query for highest number of claims
 Run all the example queries:
+- Top10 Car Model with the highest number of claims
+``` 
+MATCH (c:claim)-[:claimmodel]->(m:carmodel)
+RETURN m.CarModelCode as model , COUNT(c.ClaimNbr) as no_of_claim
+ORDER BY no_of_claim DESC
+LIMIT 10
 ```
-./bin/neo4j-shell -file query.cql
+- Top10 Agent with the highest number of claims
+```
+MATCH (a:agent)-[:agentowner]-(c:claim)
+RETURN a.AgentName as agentname , COUNT(c.ClaimNbr) as no_of_claim
+ORDER BY no_of_claim DESC
+LIMIT 10
+```
+- Top10 License Plate with the highest number of claims
+```
+MATCH (l:licenseplate)-[:vehicleclaim]-(c:claim)
+RETURN l.LicensePlate as licenseplate , COUNT(c.ClaimNbr) as no_of_claim
+ORDER BY no_of_claim DESC
+LIMIT 10
+```
+- Top10 Cause of loss with the highest number of claims
+```
+MATCH (r:causeofloss)-[:result]-(c:claim)
+RETURN r.CauseOfLoss as result , COUNT(c.ClaimNbr) as no_of_claim
+ORDER BY no_of_claim DESC
+LIMIT 10
 ```
