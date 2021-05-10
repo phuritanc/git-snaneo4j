@@ -11,8 +11,9 @@
 - Dateset car model [here](https://github.com/phuritanc/git-snaneo4j/blob/main/CARMODEL.csv)
 ### Import Data to Neo4j
 - Import data to project [here](https://github.com/phuritanc/git-snaneo4j/blob/main/Import%20Dataset%20to%20neo4j.pdf)
-### Import Dataset in to Local DBMS
-#### Query
+### Load Dataset into Local DBMS
+- Load Dataset Sample Query [here](https://github.com/phuritanc/git-snaneo4j/blob/main/Load%20Data.pdf)
+#### Cypher Query
 Run all the example queries:
 - Load Data claim to Local DBMS
 ```
@@ -81,6 +82,37 @@ CREATE(carmodel:carmodel {CarModelCode: line.CarModel ,CarBrandCode: line.CarBra
 CREATE (claim)-[:claimmodel]->(carmodel)
 MERGE (carmodel)-[:brand]->(carbrand)
 ;
+```
+### Explore data
+- Explore Data use cypher query [here](https://github.com/phuritanc/git-snaneo4j/blob/main/Explore%20Data%20Node%20and%20Relationship.pdf)
+#### Cypher Query for Explore Data
+- Node Claim
+```
+MATCH (n:claim) RETURN n LIMIT 25
+```
+- Node Car Model
+```
+MATCH (n:carmodel) RETURN n LIMIT 25
+```
+- Node cause of loss
+```
+MATCH (n:causeofloss) RETURN n LIMIT 25
+```
+- Node Agent
+```
+MATCH (n:agent) RETURN n LIMIT 25
+```
+- Relationship of agent owner
+```
+MATCH p=()-[r:agentowner]->() RETURN p LIMIT 25
+```
+- Relationship of claim model
+```
+MATCH p=()-[r:claimmodel]->() RETURN p LIMIT 300
+```
+- Relationship of product group
+```
+MATCH p=()-[r:productgroup]->() RETURN p LIMIT 25
 ```
 ## Query
 Run all the example queries:
