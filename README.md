@@ -147,3 +147,35 @@ RETURN r.CauseOfLoss as result , COUNT(c.ClaimNbr) as no_of_claim
 ORDER BY no_of_claim DESC
 LIMIT 10
 ```
+### Algorithm Community Detection-Modularity Optimization
+- Algorithm Community Detection-Modularity Optimization [here](https://github.com/phuritanc/git-snaneo4j/blob/main/Algorithm.pdf)
+#### Cypher Query
+- Setting parameters
+```
+:param limit=>( 100);
+:param config=>({
+ nodeProjection: '*',
+ relationshipProjection: {
+ relType: {
+ type: 'brand',
+ orientation: 'UNDIRECTED',
+ properties: {}
+ }
+ },
+ relationshipWeightProperty: null,
+ seedProperty: '',
+ maxIterations: 10,
+ tolerance: 0.0001
+});
+:param communityNodeLimit=>( 100);
+```
+- Anonymous Graph
+```
+CALL gds.beta.modularityOptimization.stream($config) YIELD nodeId, communityId AS community
+WITH gds.util.asNode(nodeId) AS node, community
+WITH collect(node) AS allNodes, community
+RETURN community, allNodes[0..$communityNodeLimit] AS nodes, size(allNodes) AS size
+ORDER BY size DESC
+LIMIT toInteger($limit);
+```
+
